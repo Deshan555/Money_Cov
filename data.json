@@ -1,0 +1,24 @@
+{
+    "money":[
+       {
+          "target_currency":"AED",
+          "value":3.6732
+       },
+       {
+          "target_currency":"AFN",
+          "value":77.050008
+       },
+       {
+          "target_currency":"ALL",
+          "value":103.68506
+       },
+       {
+        "target_currency":"USD",
+        "value":1
+       },
+       {
+        "target_currency":"LKR",
+        "value":185.83488
+       }
+    ]
+ }
