@@ -7,7 +7,7 @@ class BookService
   /**
    * @soap
    * @param Bookcatalog\Transfer $data_array
-   * @return int
+   * @return string
    */
   public function Convert_Money($data_array)
   {
@@ -25,7 +25,7 @@ class BookService
     /**
    * @soap
    * @param Bookcatalog\Transfer $data_array
-   * @return string
+   * @return int
    */
   public function ex($data_array)
   {
