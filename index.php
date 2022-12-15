@@ -1,12 +1,18 @@
 <?php
+ini_set("soap.wsdl_cache_enabled", "0");
 
-include('Functions.php');
+require_once __DIR__ . "/vendor/autoload.php";
 
+$class = "Bookcatalog\BookService";
 
-$return_data = Data_Extract('AED');
+$wsdl = "money_con.wsdl";
 
-echo ($return_data);
+// initialize SOAP Server
+$server=new SoapServer($wsdl,[	
+    'uri'=>"http://localhost/Server/server.php"
+]);
 
+$server->setClass($class);
 
-
-?>
+// start handling requests
+$server->handle();
