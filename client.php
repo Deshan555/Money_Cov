@@ -17,8 +17,8 @@ class Client{
     public function __construct()
     {
         $params = array(
-            'location'=>'http://localhost/Test/example.php?wsdl',
-            'uri' =>  'urn://localhost/Test/example.php?wsdl'  ,
+            'location'=>'http://localhost/Server/index.php?wsdl',
+            'uri' =>  'urn://localhost/Server/index.php?wsdl'  ,
             'trace'=>1,'cache_wsdl'=>WSDL_CACHE_NONE    );
         $this->instance =  new SoapClient(NULL, $params);
     }
@@ -27,7 +27,6 @@ class Client{
     {
         return $this->instance->__soapCall('Convert_Money', [$data_array]);
     }
-
 }
 
 $client = new Client;
@@ -38,7 +37,7 @@ $data_array->source_currency = 'LKR';
 
 $data_array->amount = 1000;
 
-$data_array->target_currency = 'AFN';
+$data_array->target_currency = 'USD';
 
 try
 {
