@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost/Server/index.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Bookcatalog.BookService" targetNamespace="http://localhost/Server/index.php">
+  <types>
+    <xsd:schema targetNamespace="http://localhost/Server/index.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="Bookcatalog.Transfer">
+        <xsd:all>
+          <xsd:element name="source_currency" type="xsd:string"/>
+          <xsd:element name="target_currency" type="xsd:string"/>
+          <xsd:element name="amount" type="xsd:int"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="Bookcatalog.BookServicePort">
+    <operation name="Convert_Money">
+      <input message="tns:Convert_MoneyIn"/>
+      <output message="tns:Convert_MoneyOut"/>
+    </operation>
+    <operation name="ex">
+      <input message="tns:exIn"/>
+      <output message="tns:exOut"/>
+    </operation>
+  </portType>
+  <binding name="Bookcatalog.BookServiceBinding" type="tns:Bookcatalog.BookServicePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Convert_Money">
+      <soap:operation soapAction="http://localhost/Server/index.php#Convert_Money"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
+      </output>
+    </operation>
+    <operation name="ex">
+      <soap:operation soapAction="http://localhost/Server/index.php#ex"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="Convert_MoneyIn">
+    <part name="data_array" type="tns:Bookcatalog.Transfer"/>
+  </message>
+  <message name="Convert_MoneyOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="exIn">
+    <part name="data_array" type="tns:Bookcatalog.Transfer"/>
+  </message>
+  <message name="exOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <service name="Bookcatalog.BookServiceService">
+    <port name="Bookcatalog.BookServicePort" binding="tns:Bookcatalog.BookServiceBinding">
+      <soap:address location="http://localhost/Server/index.php"/>
+    </port>
+  </service>
+</definitions>
