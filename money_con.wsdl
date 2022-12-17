@@ -13,28 +13,15 @@
     </xsd:schema>
   </types>
   <portType name="Bookcatalog.BookServicePort">
-    <operation name="Convert_Money">
-      <input message="tns:Convert_MoneyIn"/>
-      <output message="tns:Convert_MoneyOut"/>
-    </operation>
-    <operation name="ex">
-      <input message="tns:exIn"/>
-      <output message="tns:exOut"/>
+    <operation name="convert">
+      <input message="tns:convertIn"/>
+      <output message="tns:convertOut"/>
     </operation>
   </portType>
   <binding name="Bookcatalog.BookServiceBinding" type="tns:Bookcatalog.BookServicePort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <operation name="Convert_Money">
-      <soap:operation soapAction="http://localhost/Server/index.php#Convert_Money"/>
-      <input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
-      </input>
-      <output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
-      </output>
-    </operation>
-    <operation name="ex">
-      <soap:operation soapAction="http://localhost/Server/index.php#ex"/>
+    <operation name="convert">
+      <soap:operation soapAction="http://localhost/Server/index.php#convert"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/Server/index.php"/>
       </input>
@@ -43,16 +30,10 @@
       </output>
     </operation>
   </binding>
-  <message name="Convert_MoneyIn">
+  <message name="convertIn">
     <part name="data_array" type="tns:Bookcatalog.Transfer"/>
   </message>
-  <message name="Convert_MoneyOut">
-    <part name="return" type="xsd:string"/>
-  </message>
-  <message name="exIn">
-    <part name="data_array" type="tns:Bookcatalog.Transfer"/>
-  </message>
-  <message name="exOut">
+  <message name="convertOut">
     <part name="return" type="xsd:string"/>
   </message>
   <service name="Bookcatalog.BookServiceService">
