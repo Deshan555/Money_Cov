@@ -26,7 +26,7 @@ class Client
 
     public function money_conv($data_array)
     {
-        return $this->instance->__soapCall('Convert_Money', [$data_array]);
+        return $this->instance->__soapCall('convert', [$data_array]);
     }
 }
 
