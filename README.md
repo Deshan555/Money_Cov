@@ -18,6 +18,10 @@ this SOAP-API was created to convert between different types of currency. basica
 - The client folder contains the client source files.
 - type http://localhost/Server/Client/index.php into your browser.
 - If you strictly adhere to the instructions, you will be transferred to the client application.
+
+![alt text](https://github.com/Deshan555/Money_Cov/blob/master/Client/screenshot_client.png)
+
+
 ### Demo
 
 These Are the Requests and Responses from PHP-SOAP SPI
