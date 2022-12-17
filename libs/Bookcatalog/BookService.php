@@ -9,7 +9,7 @@ class BookService
    * @param Bookcatalog\Transfer $data_array
    * @return string
    */
-  public function Convert_Money($data_array)
+  public function convert($data_array)
   {
       $source_currency_base = $this->get_Data($data_array->source_currency);
 
@@ -22,27 +22,6 @@ class BookService
       return $calculation;
   }
 
-    /**
-   * @soap
-   * @param Bookcatalog\Transfer $data_array
-   * @return int
-   */
-  public function ex($data_array)
-  {
-      $source_currency_base = $this->get_Data($data_array->source_currency);
-
-      $target_currency_base = $this->get_Data($data_array->target_currency);
-
-      $amount = $data_array->amount;
-
-      $calculation = ($amount/$source_currency_base)*$target_currency_base;
-
-        return $calculation;
-  }
-
-  
-
-  
   function get_Data($data)
   {
       $data_json = file_get_contents('data.json');
